@@ -340,6 +340,91 @@ footer strong{ color:#fff; }
   color: #000;
 }
 
+
+/* -------- MOBILE MENU -------- */
+.menu-btn{
+  display:none;
+  margin-left:12px;
+  width:42px;height:42px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.15);
+  background:#fff;
+  cursor:pointer;
+}
+.menu-icon{
+  width:18px;height:14px;display:block;
+  background:
+    linear-gradient(#000,#000) 0 0/100% 2px,
+    linear-gradient(#000,#000) 0 50%/100% 2px,
+    linear-gradient(#000,#000) 0 100%/100% 2px;
+  background-repeat:no-repeat;
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+  opacity:0;
+  pointer-events:none;
+  transition:.25s;
+  z-index:60;
+}
+
+.mobile-menu{
+  position:fixed;
+  top:0;right:0;
+  width:80%;max-width:320px;
+  height:100%;
+  background:#fff;
+  transform:translateX(100%);
+  transition:.3s;
+  z-index:70;
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.mobile-menu a{
+  text-decoration:none;
+  font-weight:800;
+  color:#111;
+  padding:12px;
+  border-radius:12px;
+  background:#f5f5f5;
+}
+.mobile-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #eee;
+  padding-bottom:10px;
+}
+.menu-close{
+  background:none;
+  border:none;
+  font-size:22px;
+  cursor:pointer;
+}
+.mm-btn{
+  margin-top:auto;
+  background:linear-gradient(90deg,var(--red),var(--black));
+  color:#fff !important;
+  text-align:center;
+}
+
+body.menu-open .menu-overlay{
+  opacity:1;
+  pointer-events:auto;
+}
+body.menu-open .mobile-menu{
+  transform:translateX(0);
+}
+
+@media (max-width:768px){
+  .nav-links,.nav-cta{display:none;}
+  .menu-btn{display:block;}
+}
+
 </style>
 </head>
 
@@ -363,7 +448,27 @@ footer strong{ color:#fff; }
     <a class="ghost" href="about.html#services">View Services</a>
     <a class="btn" href="#form">Get a Quote</a>
   </div>
+
+  <button class="menu-btn" aria-label="Open menu">
+    <span class="menu-icon"></span>
+  </button>
 </nav>
+
+<div class="menu-overlay"></div>
+
+<div class="mobile-menu">
+  <div class="mobile-head">
+    <strong>Menu</strong>
+    <button class="menu-close">✕</button>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="about.html#services">Services</a>
+  <a href="contact.html">Contact</a>
+  <a class="mm-btn" href="#form">Get a Quote</a>
+</div>
+
 
 <header class="page-hero">
   <div class="page-hero-inner">
@@ -499,5 +604,25 @@ document.getElementById('year').textContent = new Date().getFullYear();
 })();
 </script>
 
+
+<script>
+const btn = document.querySelector('.menu-btn');
+const overlay = document.querySelector('.menu-overlay');
+const closeBtn = document.querySelector('.menu-close');
+
+function closeMenu(){
+  document.body.classList.remove('menu-open');
+}
+
+btn.addEventListener('click',()=>{
+  document.body.classList.add('menu-open');
+});
+overlay.addEventListener('click',closeMenu);
+closeBtn.addEventListener('click',closeMenu);
+document.querySelectorAll('.mobile-menu a').forEach(a=>{
+  a.addEventListener('click',closeMenu);
+});
+</script>
 </body>
+
 </html>
