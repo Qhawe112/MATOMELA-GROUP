@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MATOMELA GROUP NO LIMIT</title>
+<link rel="icon" type="image/x-icon" href="Pictures/Logo.jpg">
+
+<style>
+:root{
+  --red:#b30000;
+  --red2:#8b0000;
+  --black:#000;
+  --text:#101010;
+  --muted:#5e5e5e;
+  --card:#ffffff;
+  --border:#e9e9e9;
+  --bg:#ffffff;
+  --bg-soft:#fafafa;
+  --shadow: 0 16px 42px rgba(0,0,0,0.14);
+  --shadow2: 0 10px 28px rgba(0,0,0,0.08);
+  --radius:18px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+/* ---------------- NAV ---------------- */
+nav{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  padding:18px 40px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  animation: slideDown 650ms ease-out;
+}
+@keyframes slideDown{
+  from{ transform: translateY(-18px); opacity:0; }
+  to{ transform: translateY(0); opacity:1; }
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.logo img{ height:52px; }
+.logo span{
+  font-size:18px;
+  font-weight:800;
+  letter-spacing:0.2px;
+  white-space:nowrap;
+}
+
+/* NAV LINKS */
+.nav-links{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:26px;
+}
+.nav-links a{
+  position:relative;
+  text-decoration:none;
+  color:#111;
+  font-size:16px;
+  font-weight:700;
+  opacity:0.92;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+.nav-links a:hover{ transform: translateY(-2px); opacity:1; }
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-7px;
+  width:0;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  transition: width 220ms ease;
+}
+.nav-links a:hover::after{ width:100%; }
+
+/* CTA button (right) */
+.nav-cta{
+  margin-left:auto;
+  display:flex;
+  gap:12px;
+}
+.nav-cta a{
+  text-decoration:none;
+  font-weight:800;
+  font-size:14px;
+  padding:11px 16px;
+  border-radius:12px;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+.nav-cta a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
+}
+.nav-cta .btn{
+  background: linear-gradient(90deg, var(--red), var(--black));
+  color:#fff;
+}
+.nav-cta .ghost{
+  border:1px solid rgba(0,0,0,0.12);
+  color:#111;
+  background:rgba(255,255,255,0.7);
+}
+
+/* ---------------- HERO ---------------- */
+.hero{
+  min-height:64vh;
+  padding:0 80px;
+  display:flex;
+  align-items:center;
+  position:relative;
+  overflow:hidden;
+  background: linear-gradient(120deg, var(--red2), var(--black));
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(255,255,255,0.10), rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%);
+  animation: floatGlow 6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes floatGlow{
+  0%,100%{ transform: translate3d(-1.2%, -0.8%, 0); opacity:0.55; }
+  50%{ transform: translate3d(1.0%, 1.0%, 0); opacity:0.75; }
+}
+
+.hero-content{
+  max-width:720px;
+  color:#fff;
+  position:relative;
+  z-index:1;
+}
+.hero h1{
+  font-size:60px;
+  font-weight:900;
+  margin:0 0 18px 0;
+  letter-spacing:0.4px;
+  opacity:0;
+  transform: translateY(16px);
+  animation: fadeUp 850ms ease-out 120ms forwards;
+}
+.hero p{
+  font-size:18px;
+  line-height:1.65;
+  margin:0;
+  opacity:0;
+  transform: translateY(16px);
+  animation: fadeUp 900ms ease-out 260ms forwards;
+}
+@keyframes fadeUp{ to{ opacity:1; transform: translateY(0); } }
+
+.hero-row{
+  margin-top:26px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  opacity:0;
+  transform: translateY(16px);
+  animation: fadeUp 900ms ease-out 420ms forwards;
+}
+.hero-row a{
+  text-decoration:none;
+  font-weight:900;
+  font-size:14px;
+  padding:12px 18px;
+  border-radius:14px;
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+.hero-row a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.20);
+}
+.hero-row .primary{ background:#fff; color:#111; }
+.hero-row .secondary{ border:2px solid rgba(255,255,255,0.88); color:#fff; background: rgba(255,255,255,0.06); }
+
+/* quick badges */
+.quick-badges{
+  margin-top:22px;
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.16);
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:0.2px;
+}
+.pill .dot{
+  width:8px; height:8px; border-radius:50%;
+  background:#fff;
+  opacity:0.85;
+}
+
+/* ---------------- SECTIONS ---------------- */
+.section{
+  padding:84px 80px;
+}
+.section.alt{ background: var(--bg-soft); }
+.section h2{
+  font-size:40px;
+  margin:0 0 12px 0;
+  letter-spacing:0.25px;
+  position:relative;
+  display:inline-block;
+}
+.section h2::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-10px;
+  height:5px;
+  width:72%;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+}
+.lead{
+  max-width:920px;
+  margin:22px 0 34px 0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.75;
+}
+
+/* Scroll reveal (fade in) */
+.reveal{
+  opacity:0;
+  transform: translateY(18px);
+  transition: opacity 720ms ease, transform 720ms ease;
+  will-change: opacity, transform;
+}
+.reveal.is-visible{ opacity:1; transform: translateY(0); }
+
+/* ---------------- ABOUT ---------------- */
+.about-grid{
+  display:grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap:44px;
+  align-items:center;
+  margin-top:10px;
+}
+.about-image{
+  position:relative;
+}
+.about-image img{
+  width:100%;
+  border-radius: var(--radius);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.18);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.about-image::after{
+  content:"";
+  position:absolute;
+  inset:-10px -10px -14px -10px;
+  border-radius: calc(var(--radius) + 10px);
+  background: linear-gradient(135deg, rgba(179,0,0,0.12), rgba(0,0,0,0.10));
+  z-index:-1;
+}
+.about-content h3{
+  margin:0 0 12px 0;
+  font-size:22px;
+}
+.about-content p{
+  margin:0 0 14px 0;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:16.5px;
+}
+
+/* Small stat cards */
+.stats{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+.stat{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px 14px 12px;
+  box-shadow: var(--shadow2);
+}
+.stat .k{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:800;
+}
+.stat .v{
+  margin-top:6px;
+  font-size:18px;
+  font-weight:900;
+}
+.stat .v span{
+  background: linear-gradient(90deg, var(--red), var(--black));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+/* Services pills list */
+.services-pills{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+  margin-top:18px;
+}
+.services-pills div{
+  background:#fff;
+  border:1px solid var(--border);
+  padding:12px 14px;
+  border-radius:14px;
+  font-weight:800;
+  color:#1a1a1a;
+  position:relative;
+  overflow:hidden;
+}
+.services-pills div::before{
+  content:"";
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:5px;
+  background: linear-gradient(180deg, var(--red), var(--black));
+}
+
+/* ---------------- FEATURE GRID (Vision/Mission/Values/Promise) ---------------- */
+.feature-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:18px;
+  margin-top:10px;
+}
+.feature{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:18px 18px 16px;
+  box-shadow: var(--shadow2);
+  position:relative;
+  overflow:hidden;
+}
+.feature::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:5px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+}
+.feature h3{ margin:10px 0 10px 0; font-size:18px; }
+.feature p, .feature ul{
+  margin:0;
+  color:var(--muted);
+  line-height:1.7;
+  font-size:15px;
+}
+.feature ul{ padding-left:18px; }
+
+/* ---------------- SERVICE CARDS ---------------- */
+.cards{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:22px;
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:22px 22px 20px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  position:relative;
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:5px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  opacity:0.95;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+  border-color: #dedede;
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:44px; height:44px;
+  border-radius:12px;
+  background: rgba(179,0,0,0.08);
+  border: 1px solid rgba(179,0,0,0.18);
+  font-weight:900;
+  color:var(--red);
+}
+.card h3{ margin:14px 0 10px 0; font-size:20px; }
+.card p{ margin:0; color:var(--muted); line-height:1.65; font-size:16px; }
+
+/* ---------------- COMPLIANCE + TARGET ---------------- */
+.split{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:22px;
+  margin-top:8px;
+}
+.panel{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:20px;
+  box-shadow: var(--shadow2);
+  position:relative;
+  overflow:hidden;
+}
+.panel::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:5px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+}
+.panel h3{ margin:10px 0 12px 0; font-size:18px; }
+.chips{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.chip{
+  background: rgba(179,0,0,0.07);
+  border:1px solid rgba(179,0,0,0.14);
+  color:#1a1a1a;
+  padding:9px 12px;
+  border-radius:999px;
+  font-weight:900;
+  font-size:12px;
+}
+.list{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  line-height:1.8;
+  font-size:15.5px;
+}
+
+/* ---------------- CONTACT ---------------- */
+.contact-wrap{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:22px;
+  margin-top:14px;
+}
+.contact-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding:22px;
+  box-shadow: var(--shadow2);
+  position:relative;
+  overflow:hidden;
+}
+.contact-card::before{
+  content:"";
+  position:absolute;
+  left:0; top:0;
+  width:100%;
+  height:5px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+}
+.contact-card p{
+  margin:0 0 12px 0;
+  color:#202020;
+  line-height:1.7;
+  font-size:16px;
+}
+.contact-card a{
+  color:var(--red);
+  text-decoration:none;
+  font-weight:900;
+}
+.contact-card a:hover{ text-decoration:underline; }
+
+/* Simple form */
+form{ display:grid; gap:12px; }
+input, textarea{
+  width:100%;
+  padding:12px 12px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.14);
+  outline:none;
+  font-size:14px;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+input:focus, textarea:focus{
+  border-color: rgba(179,0,0,0.55);
+  box-shadow: 0 0 0 4px rgba(179,0,0,0.10);
+}
+textarea{ min-height:110px; resize:vertical; }
+.submit{
+  border:0;
+  cursor:pointer;
+  padding:12px 14px;
+  border-radius:12px;
+  font-weight:900;
+  color:#fff;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.submit:hover{ transform: translateY(-2px); box-shadow: 0 14px 26px rgba(0,0,0,0.16); }
+
+/* Footer */
+footer{
+  padding:26px 80px;
+  background:#0d0d0d;
+  color:#cfcfcf;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+footer strong{ color:#fff; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1100px){ .feature-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 1024px){
+  .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .about-grid{ grid-template-columns:1fr; }
+  .split{ grid-template-columns:1fr; }
+  .contact-wrap{ grid-template-columns:1fr; }
+  .nav-links{ position:static; transform:none; margin-left:18px; }
+}
+@media (max-width: 768px){
+  nav{ padding:14px 18px; }
+  .logo span{ font-size:16px; }
+  .nav-links{ display:none; }
+  .hero{ padding:0 22px; min-height:58vh; }
+  .hero h1{ font-size:40px; }
+  .section{ padding:62px 22px; }
+  .section h2{ font-size:30px; }
+  .services-pills{ grid-template-columns:1fr; }
+  .stats{ grid-template-columns:1fr; }
+  footer{ padding:22px 22px; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    <img src="Pictures/Logo.jpg" alt="Matomela Group Logo">
+    <span>MATOMELA GROUP NO LIMIT</span>
+  </div>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#values">Vision & Values</a>
+    <a href="#services">Services</a>
+    <a href="#market">Market & Compliance</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="nav-cta">
+    <a class="ghost" href="#services">View Services</a>
+    <a class="btn" href="#contact">Get a Quote</a>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>YOUR SAFETY IS OUR<br>PRIORITY</h1>
+    <p>
+      Anchored on a socio‑economic empowered set of values, MATOMELA GROUP NO LIMIT delivers dependable,
+      professional security solutions that protect communities, assets and business interests—24/7.
+    </p>
+
+    <div class="quick-badges">
+      <span class="pill"><span class="dot"></span> 24/7 Control Room</span>
+      <span class="pill"><span class="dot"></span> PSIRA Registered</span>
+      <span class="pill"><span class="dot"></span> Level 1 B‑BBEE</span>
+    </div>
+
+    <div class="hero-row">
+      <a class="primary" href="#contact">Request a Quote</a>
+      <a class="secondary" href="#about">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section alt">
+  <div class="reveal">
+    <h2>Who is MATOMELA GROUP NO LIMIT</h2>
+    <p class="lead">
+      Matomela Group No Limit is a 100% Black‑owned company established and registered in 2024. With extensive experience
+      in the security industry, we strive to bridge the gap in private security and create safer communities.
+    </p>
+  </div>
+
+  <div class="about-grid">
+    <div class="about-image reveal">
+      <img src="Pictures/Security-officers1.jpeg" alt="MATOMELA GROUP NO LIMIT Security Officers">
+    </div>
+
+    <div class="about-content reveal">
+      <h3>Professional. Disciplined. Community‑Focused.</h3>
+      <p>
+        We recruit qualified, passionate partners with expertise in security to ensure consistent, quality service delivery.
+        Our dedicated management team focuses on smooth operations and meeting logistical expectations.
+      </p>
+      <p>
+        We implement stringent training over and above average standards. As an independent and standalone company,
+        we provide unbiased, objective recommendations tailored to the client’s needs and budget while maintaining required standards.
+      </p>
+
+      <div class="stats">
+        <div class="stat"><div class="k">Established</div><div class="v"><span>2024</span></div></div>
+        <div class="stat"><div class="k">Availability</div><div class="v"><span>24/7</span></div></div>
+        <div class="stat"><div class="k">Commitment</div><div class="v"><span>Integrity</span></div></div>
+      </div>
+
+      <div class="services-pills">
+        <div>Guarding Division</div>
+        <div>Riot Intervention</div>
+        <div>VIP Protection</div>
+        <div>Armed Response</div>
+        <div>CCTV Installation &amp; Management</div>
+        <div>Access Control &amp; Fire Alarms</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="values" class="section">
+  <div class="reveal">
+    <h2>Vision, Mission & Values</h2>
+    <p class="lead">
+      We safeguard, protect and inspire communities through skills development, disciplined operations, and a client‑first approach.
+    </p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature reveal">
+      <h3>Vision</h3>
+      <p>To safeguard, protect and inspire communities through skills development in security and business skills.</p>
+    </div>
+
+    <div class="feature reveal">
+      <h3>Mission</h3>
+      <p>
+        Ensure proper management of security run by fully equipped officers with the right technical and business skills
+        to contribute to the socio‑economic wellbeing of the communities.
+      </p>
+    </div>
+
+    <div class="feature reveal">
+      <h3>Aim & Objectives</h3>
+      <ul>
+        <li>Provide hands‑on technical and business skills to clients.</li>
+        <li>Create and maintain a healthy working relationship with clients.</li>
+        <li>Provide job opportunities.</li>
+        <li>Maximize value and operational efficiency.</li>
+      </ul>
+    </div>
+
+    <div class="feature reveal">
+      <h3>Operational Values</h3>
+      <ul>
+        <li>Ubuntu</li>
+        <li>Integrity and honesty</li>
+        <li>Discipline</li>
+        <li>Professionalism</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="section alt">
+  <div class="reveal">
+    <h2>Our Security Services</h2>
+    <p class="lead">
+      From physical guarding and rapid response to modern surveillance and access control, our services reduce risk,
+      prevent incidents, and protect what matters most.
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card reveal">
+      <div class="badge">GD</div>
+      <h3>Guarding Division</h3>
+      <p>Professional guarding and access control with disciplined officers to protect residential, commercial, and industrial sites.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">RI</div>
+      <h3>Riot Intervention</h3>
+      <p>Trained teams for order, control, and safe resolution in high‑pressure environments.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">VP</div>
+      <h3>VIP Protection</h3>
+      <p>Close personal protection delivered by experienced personnel focused on prevention and risk reduction.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">AR</div>
+      <h3>Armed Response</h3>
+      <p>Fast reaction support coordinated through control‑room communication and operational policy.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">EM</div>
+      <h3>Event Management</h3>
+      <p>Professional event safety planning and crowd control to maintain order and protect guests and assets.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">CV</div>
+      <h3>CCTV Installation &amp; Management</h3>
+      <p>Surveillance systems and monitoring solutions that deter threats and improve visibility at your premises.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">AC</div>
+      <h3>Access Control</h3>
+      <p>Secure entry and site control solutions to manage movement, prevent unauthorized access, and reduce risk.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">FA</div>
+      <h3>Fire Alarms Installation</h3>
+      <p>Fire alarm installation solutions that support safer sites and improved emergency readiness.</p>
+    </div>
+
+    <div class="card reveal">
+      <div class="badge">CG</div>
+      <h3>Car Guarding &amp; Training</h3>
+      <p>Car guarding services and security training to strengthen safety, awareness, and operational readiness.</p>
+    </div>
+  </div>
+</section>
+
+<section id="market" class="section">
+  <div class="reveal">
+    <h2>Target Market & Compliance</h2>
+    <p class="lead">
+      We serve diverse industries and institutions—backed by compliance, proper communication, well‑trained guards, and fast reaction times.
+    </p>
+  </div>
+
+  <div class="split">
+    <div class="panel reveal">
+      <h3>Target Market</h3>
+      <ul class="list">
+        <li>Mining Industry</li>
+        <li>Schools, Colleges and Universities (Public &amp; Private)</li>
+        <li>Office Buildings</li>
+        <li>Retail Parks &amp; Shopping Malls</li>
+        <li>Government Office Buildings &amp; Departments</li>
+        <li>Residential Areas &amp; Apartment Buildings</li>
+        <li>Commercial Areas &amp; Real Estate Parks</li>
+      </ul>
+      <div class="chips" style="margin-top:14px">
+        <span class="chip">Order &amp; Control</span>
+        <span class="chip">Well Trained Guards</span>
+        <span class="chip">Fast Reaction Times</span>
+      </div>
+    </div>
+
+    <div class="panel reveal">
+      <h3>Compliance</h3>
+      <ul class="list">
+        <li><strong>PSIRA Registration number:</strong> 4894250</li>
+        <li><strong>CIPC Registration number:</strong> 2024/218885/07</li>
+        <li><strong>Level:</strong> 1 B‑BBEE company</li>
+        <li><strong>Tax Ref No:</strong> 9245118279</li>
+      </ul>
+      <div class="chips" style="margin-top:14px">
+        <span class="chip">Integrity &amp; Honesty</span>
+        <span class="chip">Professionalism</span>
+        <span class="chip">Proper Communication</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section alt">
+  <div class="reveal">
+    <h2>Contact</h2>
+    <p class="lead">
+      Get in touch for a tailored quote. Our control room operates 24/7 and is fully equipped with a patrol monitoring system.
+    </p>
+  </div>
+
+  <div class="contact-wrap">
+    <div class="contact-card reveal">
+      <h3 style="margin:10px 0 14px 0;">Contact Details</h3>
+      <p><strong>Cell Phone:</strong> 071 006 9641</p>
+      <p><strong>Tel:</strong> 039 318 1200</p>
+      <p><strong>Email:</strong> <a href="mailto:matomelagroup6@gmail.com">matomelagroup6@gmail.com</a></p>
+      <p><strong>Office Address:</strong><br>
+        1524 Masemola Road,<br>
+        Gamalakhe, Port Shepstone,<br>
+        KwaZulu‑Natal, 4249
+      </p>
+      <p style="margin-top:14px; color:var(--muted)"><strong>24/7 Control Room:</strong> 1524 Masemola Road, Gamalakhe, KwaZulu‑Natal.</p>
+    </div>
+
+    <div class="contact-card reveal">
+      <h3 style="margin:10px 0 14px 0;">Quick Message</h3>
+      <form onsubmit="event.preventDefault(); alert('Thanks! Your message has been captured. We will contact you shortly.');">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="tel" name="phone" placeholder="Your phone number" required>
+        <input type="email" name="email" placeholder="Your email address">
+        <textarea name="message" placeholder="Tell us what you need (site, hours, location, services)..." required></textarea>
+        <button class="submit" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><strong>MATOMELA GROUP NO LIMIT</strong> — Security Solutions</div>
+  <div>© <span id="year"></span> All rights reserved.</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Fade-in on scroll using IntersectionObserver
+(function(){
+  const items = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach((e)=>{
+      if(e.isIntersecting){
+        e.target.classList.add('is-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  items.forEach((el)=>obs.observe(el));
+})();
+</script>
+
+</body>
+</html>
