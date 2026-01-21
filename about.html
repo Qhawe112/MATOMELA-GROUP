@@ -543,51 +543,27 @@ body.menu-open .menu-overlay{
 body.menu-open .mobile-menu{
   transform:translateX(0);
 }
-
-@media (max-width:768px){
-  .nav-links,.nav-cta{display:none;}
-  .menu-btn{display:block;}
-}
-
+/* ===== FIX: STACK VISION / MISSION / VALUES ON MOBILE ===== */
 @media (max-width: 768px) {
 
-  .vmv-grid,
-  .vision-grid,
-  .values-grid {
-    display: flex !important;
-    flex-direction: column !important;
+  .cards,
+  .cards-grid,
+  .vision-mission-grid,
+  .vmv-container {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
     gap: 20px;
   }
 
-  .vmv-card,
+  .card,
   .vision-card,
-  .values-card {
+  .vmv-card {
     width: 100% !important;
-    min-height: auto;
+    min-height: auto !important;
   }
 
-  .vmv-card h3,
-  .vision-card h3,
-  .values-card h3 {
-    font-size: 20px;
-  }
-
-  .vmv-card p,
-  .vision-card p,
-  .values-card p,
-  .vmv-card li {
-    font-size: 15px;
-    line-height: 1.6;
-  }
 }
 
-  @media (max-width: 768px) {
-  .vmv-grid {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 20px;
-  }
-}
 
 
 </style>
