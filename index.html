@@ -3,27 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<meta name="description" content="MATOMELA GROUP NO LIMIT is a professional security company in Port Shepstone, KwaZulu-Natal. We provide 24/7 security guards (armed/unarmed), VIP protection, armed response, CCTV, access control and event security.">
-<meta name="robots" content="index,follow">
-<link rel="canonical" href="https://www.matomela-group.co.za/index.html">
-
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="MATOMELA GROUP NO LIMIT">
-<meta property="og:title" content="Security Company in Port Shepstone | MATOMELA GROUP NO LIMIT">
-<meta property="og:description" content="MATOMELA GROUP NO LIMIT is a professional security company in Port Shepstone, KwaZulu-Natal. We provide 24/7 security guards (armed/unarmed), VIP protection, armed response, CCTV, access control and event security.">
-<meta property="og:url" content="https://www.matomela-group.co.za/index.html">
-<meta property="og:image" content="https://www.matomela-group.co.za/Pictures/Logo.jpg">
-
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Security Company in Port Shepstone | MATOMELA GROUP NO LIMIT">
-<meta name="twitter:description" content="MATOMELA GROUP NO LIMIT is a professional security company in Port Shepstone, KwaZulu-Natal. We provide 24/7 security guards (armed/unarmed), VIP protection, armed response, CCTV, access control and event security.">
-<meta name="twitter:image" content="https://www.matomela-group.co.za/Pictures/Logo.jpg">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "MATOMELA GROUP NO LIMIT", "url": "https://YOUR-SITE.netlify.app/index.html", "telephone": ["+27 71 006 9641", "+27 39 318 1200"], "email": "matomelagroup6@gmail.com", "address": {"@type": "PostalAddress", "streetAddress": "1524 Masemola Road, Gamalakhe", "addressLocality": "Port Shepstone", "postalCode": "4249", "addressRegion": "KwaZulu-Natal", "addressCountry": "ZA"}, "areaServed": ["Port Shepstone", "Gamalakhe", "KwaZulu-Natal", "South Africa"], "openingHours": "Mo-Su 00:00-23:59", "foundingDate": "2024", "image": "https://YOUR-SITE.netlify.app/Pictures/Logo.jpg", "sameAs": [], "description": "MATOMELA GROUP NO LIMIT is a professional security company in Port Shepstone, KwaZulu-Natal. We provide 24/7 security guards (armed/unarmed), VIP protection, armed response, CCTV, access control and event security."}</script>
-<title>Security Company in Port Shepstone | MATOMELA GROUP NO LIMIT</title>
+<title>MATOMELA GROUP NO LIMIT | Security Services</title>
 <link rel="icon" type="image/x-icon" href="Pictures/Logo.jpg">
-
 <style>
+
 :root{
   --red:#b30000;
   --red2:#8b0000;
@@ -39,11 +22,6 @@
   --radius:18px;
 }
 
-.cname {
-  text-decoration: none;
-  color: #000;
-}
-
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 
@@ -54,208 +32,189 @@ body{
   background:var(--bg);
 }
 
-/* ---------------- NAV ---------------- */
-nav{
+/* ---------------- NAVBAR (NO OVERLAP) ---------------- */
+.navbar{
   position:sticky;
   top:0;
   z-index:50;
-  display:flex;
-  align-items:center;
-  padding:18px 40px;
   background:rgba(255,255,255,0.92);
   backdrop-filter: blur(10px);
   border-bottom:1px solid rgba(0,0,0,0.06);
-  animation: slideDown 650ms ease-out;
 }
-@keyframes slideDown{
-  from{ transform: translateY(-18px); opacity:0; }
-  to{ transform: translateY(0); opacity:1; }
-}
-.logo{
+
+.navbar .inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   gap:14px;
 }
-.logo img{ height:52px; }
-.logo span{
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#111;
+  min-width:0;
+}
+.brand img{ height:46px; flex:0 0 auto; }
+.brand span{
   font-size:18px;
-  font-weight:800;
+  font-weight:900;
   letter-spacing:0.2px;
   white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
-/* NAV LINKS */
 .nav-links{
-  position:absolute;
-  left:50%;
-  transform:translateX(-50%);
   display:flex;
-  gap:26px;
+  align-items:center;
+  gap:18px;
+  margin-left:auto;
 }
 .nav-links a{
   position:relative;
   text-decoration:none;
   color:#111;
-  font-size:16px;
-  font-weight:700;
-  opacity:0.92;
-  transition: transform 180ms ease, opacity 180ms ease;
+  font-size:15px;
+  font-weight:800;
+  opacity:0.9;
+  transition: transform 160ms ease, opacity 160ms ease;
 }
 .nav-links a:hover{ transform: translateY(-2px); opacity:1; }
 .nav-links a::after{
   content:"";
   position:absolute;
   left:0;
-  bottom:-7px;
+  bottom:-8px;
   width:0;
   height:3px;
   border-radius:999px;
   background: linear-gradient(90deg, var(--red), var(--black));
-  transition: width 220ms ease;
+  transition: width 200ms ease;
 }
 .nav-links a:hover::after{ width:100%; }
 
-/* CTA button (right) */
 .nav-cta{
-  margin-left:auto;
   display:flex;
-  gap:12px;
+  gap:10px;
+  margin-left:10px;
 }
 .nav-cta a{
   text-decoration:none;
-  font-weight:800;
-  font-size:14px;
-  padding:11px 16px;
-  border-radius:12px;
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
-}
-.nav-cta a:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.16);
-}
-.nav-cta .btn{
-  background: linear-gradient(90deg, var(--red), var(--black));
-  color:#fff;
-}
-.nav-cta .ghost{
-  border:1px solid rgba(0,0,0,0.12);
-  color:#111;
-  background:rgba(255,255,255,0.7);
-}
-
-/* ---------------- HERO ---------------- */
-.hero{
-  min-height:64vh;
-  padding:0 80px;
-  display:flex;
-  align-items:center;
-  position:relative;
-  overflow:hidden;
-  background: linear-gradient(120deg, var(--red2), var(--black));
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:-20%;
-  background:
-    radial-gradient(circle at 25% 30%, rgba(255,255,255,0.10), rgba(255,255,255,0) 42%),
-    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%);
-  animation: floatGlow 6s ease-in-out infinite;
-  pointer-events:none;
-}
-@keyframes floatGlow{
-  0%,100%{ transform: translate3d(-1.2%, -0.8%, 0); opacity:0.55; }
-  50%{ transform: translate3d(1.0%, 1.0%, 0); opacity:0.75; }
-}
-
-.hero-content{
-  max-width:720px;
-  color:#fff;
-  position:relative;
-  z-index:1;
-}
-.hero h1{
-  font-size:60px;
   font-weight:900;
-  margin:0 0 18px 0;
-  letter-spacing:0.4px;
-  opacity:0;
-  transform: translateY(16px);
-  animation: fadeUp 850ms ease-out 120ms forwards;
+  font-size:13px;
+  padding:10px 14px;
+  border-radius:12px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  white-space:nowrap;
 }
-.hero p{
-  font-size:18px;
-  line-height:1.65;
-  margin:0;
-  opacity:0;
-  transform: translateY(16px);
-  animation: fadeUp 900ms ease-out 260ms forwards;
-}
-@keyframes fadeUp{ to{ opacity:1; transform: translateY(0); } }
+.nav-cta a:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.14); }
+.btn{ background: linear-gradient(90deg, var(--red), var(--black)); color:#fff; }
+.ghost{ border:1px solid rgba(0,0,0,0.14); color:#111; background:rgba(255,255,255,0.7); }
 
-.hero-row{
-  margin-top:26px;
-  display:flex;
-  gap:14px;
-  align-items:center;
-  flex-wrap:wrap;
-  opacity:0;
-  transform: translateY(16px);
-  animation: fadeUp 900ms ease-out 420ms forwards;
+/* Hamburger (shown on <=1024px to fix iPad overlap) */
+.menu-btn{
+  display:none;
+  margin-left:auto;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.14);
+  background:#fff;
+  cursor:pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  flex:0 0 auto;
 }
-.hero-row a{
+.menu-btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+.menu-icon{
+  width:20px;
+  height:14px;
+  display:inline-block;
+  background:
+    linear-gradient(#111,#111) 0 0/100% 2px,
+    linear-gradient(#111,#111) 0 50%/100% 2px,
+    linear-gradient(#111,#111) 0 100%/100% 2px;
+  background-repeat:no-repeat;
+}
+
+/* Mobile menu */
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 220ms ease;
+  z-index:60;
+}
+.mobile-menu{
+  position:fixed;
+  top:0; right:0;
+  height:100%;
+  width:min(88vw, 360px);
+  background:#fff;
+  transform: translateX(102%);
+  transition: transform 260ms ease;
+  z-index:70;
+  padding:18px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  box-shadow:-20px 0 50px rgba(0,0,0,0.18);
+}
+.mobile-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 4px 10px;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.mobile-head strong{ font-weight:900; }
+.menu-close{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.14);
+  background:#fff;
+  cursor:pointer;
+}
+.mobile-menu a{
   text-decoration:none;
   font-weight:900;
-  font-size:14px;
-  padding:12px 18px;
+  color:#111;
+  padding:12px 12px;
   border-radius:14px;
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+  background:#f7f7f7;
+  border:1px solid rgba(0,0,0,0.08);
 }
-.hero-row a:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.20);
-}
-.hero-row .primary{ background:#fff; color:#111; }
-.hero-row .secondary{ border:2px solid rgba(255,255,255,0.88); color:#fff; background: rgba(255,255,255,0.06); }
-
-/* quick badges */
-.quick-badges{
-  margin-top:22px;
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-.pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:10px 12px;
-  border-radius:999px;
-  background: rgba(255,255,255,0.10);
-  border:1px solid rgba(255,255,255,0.16);
-  font-weight:800;
-  font-size:12px;
-  letter-spacing:0.2px;
-}
-.pill .dot{
-  width:8px; height:8px; border-radius:50%;
-  background:#fff;
-  opacity:0.85;
+.mobile-menu a.mm-btn{
+  margin-top:auto;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  color:#fff;
+  border:none;
+  text-align:center;
 }
 
-/* ---------------- SECTIONS ---------------- */
-.section{
-  padding:84px 80px;
-}
+body.menu-open .menu-overlay{ opacity:1; pointer-events:auto; }
+body.menu-open .mobile-menu{ transform: translateX(0); }
+
+/* ----------- SECTIONS / TYPO ----------- */
+.section{ padding:84px 18px; }
+.section .wrap{ max-width:1200px; margin:0 auto; }
 .section.alt{ background: var(--bg-soft); }
-.section h2{
+
+.h2{
   font-size:40px;
   margin:0 0 12px 0;
   letter-spacing:0.25px;
   position:relative;
   display:inline-block;
 }
-.section h2::after{
+.h2::after{
   content:"";
   position:absolute;
   left:0;
@@ -273,7 +232,7 @@ nav{
   line-height:1.75;
 }
 
-/* Scroll reveal (fade in) */
+/* Reveal animation */
 .reveal{
   opacity:0;
   transform: translateY(18px);
@@ -282,149 +241,13 @@ nav{
 }
 .reveal.is-visible{ opacity:1; transform: translateY(0); }
 
-/* Stagger helper */
-[data-stagger] .reveal{
-  transition-delay: calc(var(--i) * 90ms);
-}
-
-/* ---------------- ABOUT ---------------- */
-.about-grid{
-  display:grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap:44px;
-  align-items:center;
-  margin-top:10px;
-}
-.about-image{
-  position:relative;
-}
-.about-image img{
-  width:100%;
-  border-radius: var(--radius);
-  box-shadow: 0 18px 46px rgba(0,0,0,0.18);
-  border:1px solid rgba(0,0,0,0.06);
-}
-.about-image::after{
-  content:"";
-  position:absolute;
-  inset:-10px -10px -14px -10px;
-  border-radius: calc(var(--radius) + 10px);
-  background: linear-gradient(135deg, rgba(179,0,0,0.12), rgba(0,0,0,0.10));
-  z-index:-1;
-}
-.about-content h3{
-  margin:0 0 12px 0;
-  font-size:22px;
-}
-.about-content p{
-  margin:0 0 14px 0;
-  color:var(--muted);
-  line-height:1.75;
-  font-size:16.5px;
-}
-
-/* Small stat cards */
-.stats{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:12px;
-  margin-top:16px;
-}
-.stat{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:14px 14px 12px;
-  box-shadow: var(--shadow2);
-}
-.stat .k{
-  font-size:12px;
-  color:var(--muted);
-  font-weight:800;
-}
-.stat .v{
-  margin-top:6px;
-  font-size:18px;
-  font-weight:900;
-}
-.stat .v span{
-  background: linear-gradient(90deg, var(--red), var(--black));
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-/* Services pills list */
-.services-pills{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap:12px;
-  margin-top:18px;
-}
-.services-pills div{
-  background:#fff;
-  border:1px solid var(--border);
-  padding:12px 14px;
-  border-radius:14px;
-  font-weight:800;
-  color:#1a1a1a;
-  position:relative;
-  overflow:hidden;
-}
-.services-pills div::before{
-  content:"";
-  position:absolute;
-  left:0; top:0; bottom:0;
-  width:5px;
-  background: linear-gradient(180deg, var(--red), var(--black));
-}
-
-/* ---------------- FEATURE GRID (Vision/Mission/Values/Promise) ---------------- */
-.feature-grid{
-  display:grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap:18px;
-  margin-top:10px;
-}
-.feature{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:18px 18px 16px;
-  box-shadow: var(--shadow2);
-  position:relative;
-  overflow:hidden;
-}
-.feature::before{
-  content:"";
-  position:absolute;
-  left:0; top:0;
-  width:100%;
-  height:5px;
-  background: linear-gradient(90deg, var(--red), var(--black));
-}
-.feature h3{ margin:10px 0 10px 0; font-size:18px; }
-.feature p, .feature ul{
-  margin:0;
-  color:var(--muted);
-  line-height:1.7;
-  font-size:15px;
-}
-.feature ul{ padding-left:18px; }
-
-/* ---------------- SERVICE CARDS ---------------- */
-.cards{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap:22px;
-}
+/* Cards */
 .card{
   background:var(--card);
   border:1px solid var(--border);
   border-radius: var(--radius);
-  padding:22px 22px 20px;
-  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  padding:22px;
+  box-shadow: var(--shadow2);
   position:relative;
   overflow:hidden;
 }
@@ -437,11 +260,6 @@ nav{
   background: linear-gradient(90deg, var(--red), var(--black));
   opacity:0.95;
 }
-.card:hover{
-  transform: translateY(-6px);
-  box-shadow: var(--shadow);
-  border-color: #dedede;
-}
 .badge{
   display:inline-flex;
   align-items:center;
@@ -453,129 +271,105 @@ nav{
   font-weight:900;
   color:var(--red);
 }
-.card h3{ margin:14px 0 10px 0; font-size:20px; }
-.card p{ margin:0; color:var(--muted); line-height:1.65; font-size:16px; }
 
-/* ---------------- COMPLIANCE + TARGET ---------------- */
-.split{
+.grid-3{
   display:grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap:22px;
-  margin-top:8px;
 }
-.panel{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:20px;
-  box-shadow: var(--shadow2);
+.grid-2{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:22px;
+}
+.grid-4{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap:18px;
+}
+
+/* Hero */
+.hero{
+  background: linear-gradient(120deg, var(--red2), var(--black));
+  color:#fff;
   position:relative;
   overflow:hidden;
+  padding:70px 18px;
 }
-.panel::before{
+.hero::before{
   content:"";
   position:absolute;
-  left:0; top:0;
-  width:100%;
-  height:5px;
-  background: linear-gradient(90deg, var(--red), var(--black));
+  inset:-20%;
+  background:
+    radial-gradient(circle at 25% 30%, rgba(255,255,255,0.10), rgba(255,255,255,0) 42%),
+    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), rgba(255,255,255,0) 45%);
+  animation: floatGlow 6s ease-in-out infinite;
+  pointer-events:none;
 }
-.panel h3{ margin:10px 0 12px 0; font-size:18px; }
-.chips{
+@keyframes floatGlow{
+  0%,100%{ transform: translate3d(-1.2%, -0.8%, 0); opacity:0.55; }
+  50%{ transform: translate3d(1.0%, 1.0%, 0); opacity:0.75; }
+}
+.hero .wrap{ max-width:1200px; margin:0 auto; position:relative; z-index:1; }
+.hero h1{
+  font-size:56px;
+  font-weight:900;
+  margin:0 0 18px 0;
+  letter-spacing:0.4px;
+}
+.hero p{
+  font-size:18px;
+  line-height:1.65;
+  max-width:820px;
+  margin:0;
+}
+.hero-actions{
+  margin-top:22px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.hero-actions a{
+  text-decoration:none;
+  font-weight:900;
+  font-size:14px;
+  padding:12px 18px;
+  border-radius:14px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.hero-actions a:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.20); }
+.hero-actions .primary{ background:#fff; color:#111; }
+.hero-actions .secondary{ border:2px solid rgba(255,255,255,0.88); color:#fff; background: rgba(255,255,255,0.06); }
+
+.quick-badges{
+  margin-top:18px;
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
-.chip{
-  background: rgba(179,0,0,0.07);
-  border:1px solid rgba(179,0,0,0.14);
-  color:#1a1a1a;
-  padding:9px 12px;
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 12px;
   border-radius:999px;
-  font-weight:900;
+  background: rgba(255,255,255,0.10);
+  border:1px solid rgba(255,255,255,0.16);
+  font-weight:800;
   font-size:12px;
+  letter-spacing:0.2px;
 }
-.list{
-  margin:0;
-  padding-left:18px;
-  color:var(--muted);
-  line-height:1.8;
-  font-size:15.5px;
-}
-
-/* ---------------- CONTACT ---------------- */
-.contact-wrap{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:22px;
-  margin-top:14px;
-}
-.contact-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius: var(--radius);
-  padding:22px;
-  box-shadow: var(--shadow2);
-  position:relative;
-  overflow:hidden;
-}
-.contact-card::before{
-  content:"";
-  position:absolute;
-  left:0; top:0;
-  width:100%;
-  height:5px;
-  background: linear-gradient(90deg, var(--red), var(--black));
-}
-.contact-card p{
-  margin:0 0 12px 0;
-  color:#202020;
-  line-height:1.7;
-  font-size:16px;
-}
-.contact-card a{
-  color:var(--red);
-  text-decoration:none;
-  font-weight:900;
-}
-.contact-card a:hover{ text-decoration:underline; }
-
-/* Simple form */
-form{
-  display:grid;
-  gap:12px;
-}
-input, textarea{
-  width:100%;
-  padding:12px 12px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.14);
-  outline:none;
-  font-size:14px;
-  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-input:focus, textarea:focus{
-  border-color: rgba(179,0,0,0.55);
-  box-shadow: 0 0 0 4px rgba(179,0,0,0.10);
-}
-textarea{ min-height:110px; resize:vertical; }
-.submit{
-  border:0;
-  cursor:pointer;
-  padding:12px 14px;
-  border-radius:12px;
-  font-weight:900;
-  color:#fff;
-  background: linear-gradient(90deg, var(--red), var(--black));
-  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
-}
-.submit:hover{ transform: translateY(-2px); box-shadow: 0 14px 26px rgba(0,0,0,0.16); }
+.pill .dot{ width:8px; height:8px; border-radius:50%; background:#fff; opacity:0.85; }
 
 /* Footer */
 footer{
-  padding:26px 80px;
+  padding:26px 18px;
   background:#0d0d0d;
   color:#cfcfcf;
+}
+footer .wrap{
+  max-width:1200px;
+  margin:0 auto;
   display:flex;
   justify-content:space-between;
   gap:12px;
@@ -583,322 +377,205 @@ footer{
 }
 footer strong{ color:#fff; }
 
-/* ---------------- RESPONSIVE ---------------- */
-@media (max-width: 1100px){
-  .feature-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-}
+/* -------- RESPONSIVE -------- */
 @media (max-width: 1024px){
-  .cards{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .about-grid{ grid-template-columns:1fr; }
-  .split{ grid-template-columns:1fr; }
-  .contact-wrap{ grid-template-columns:1fr; }
-  .nav-links{ position:static; transform:none; margin-left:18px; }
+  .nav-links, .nav-cta{ display:none; }
+  .menu-btn{ display:flex; align-items:center; justify-content:center; }
+
+  .grid-4{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .grid-3{ grid-template-columns: repeat(2, minmax(0,1fr)); }
 }
+
 @media (max-width: 768px){
-  nav{ padding:14px 18px; }
-  .logo span{ font-size:16px; }
-  .nav-links{ display:none; } /* keep simple on mobile */
-  .hero{ padding:0 22px; min-height:58vh; }
   .hero h1{ font-size:40px; }
-  .section{ padding:62px 22px; }
-  .section h2{ font-size:30px; }
-  .services-pills{ grid-template-columns:1fr; }
-  .stats{ grid-template-columns:1fr; }
-  footer{ padding:22px 22px; }
-}
-
-/* -------- MOBILE MENU -------- */
-.menu-btn{
-  display:none;
-  margin-left:12px;
-  width:42px;height:42px;
-  border-radius:12px;
-  border:1px solid rgba(0,0,0,0.15);
-  background:#fff;
-  cursor:pointer;
-}
-.menu-icon{
-  width:18px;height:14px;display:block;
-  background:
-    linear-gradient(#000,#000) 0 0/100% 2px,
-    linear-gradient(#000,#000) 0 50%/100% 2px,
-    linear-gradient(#000,#000) 0 100%/100% 2px;
-  background-repeat:no-repeat;
-}
-
-.menu-overlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.5);
-  opacity:0;
-  pointer-events:none;
-  transition:.25s;
-  z-index:60;
-}
-
-.mobile-menu{
-  position:fixed;
-  top:0;right:0;
-  width:80%;max-width:320px;
-  height:100%;
-  background:#fff;
-  transform:translateX(100%);
-  transition:.3s;
-  z-index:70;
-  padding:18px;
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-}
-.mobile-menu a{
-  text-decoration:none;
-  font-weight:800;
-  color:#111;
-  padding:12px;
-  border-radius:12px;
-  background:#f5f5f5;
-}
-.mobile-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #eee;
-  padding-bottom:10px;
-}
-.menu-close{
-  background:none;
-  border:none;
-  font-size:22px;
-  cursor:pointer;
-}
-.mm-btn{
-  margin-top:auto;
-  background:linear-gradient(90deg,var(--red),var(--black));
-  color:#fff !important;
-  text-align:center;
-}
-
-body.menu-open .menu-overlay{
-  opacity:1;
-  pointer-events:auto;
-}
-body.menu-open .mobile-menu{
-  transform:translateX(0);
-}
-
-@media (max-width:768px){
-  .nav-links,.nav-cta{display:none;}
-  .menu-btn{display:block;}
+  .h2{ font-size:30px; }
+  .grid-4{ grid-template-columns: 1fr; } /* stack vertically */
+  .grid-3{ grid-template-columns: 1fr; }
+  .grid-2{ grid-template-columns: 1fr; }
+  .section{ padding:62px 18px; }
 }
 
 </style>
 </head>
-
 <body>
+<div class="navbar">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <img src="Pictures/Logo.jpg" alt="Matomela Group Logo">
+      <span>MATOMELA GROUP NO LIMIT</span>
+    </a>
 
-<nav>
-  <div class="logo">
-    <img src="Pictures/Logo.jpg" alt="Matomela Group Logo">
-    <span><a href="Index.html" class="cname">MATOMELA GROUP NO LIMIT</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="about.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-cta">
+      <a class="ghost" href="about.html#services">View Services</a>
+      <a class="btn" href="contact.html">Get a Quote</a>
+    </div>
+
+    <button class="menu-btn" type="button" aria-label="Open menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
   </div>
+</div>
 
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="Gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="#services">Services</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="nav-cta">
-    <a class="ghost" href="#services">View Services</a>
-    <a class="btn" href="contact.html">Get a Quote</a>
-  </div>
-
-  <button class="menu-btn" aria-label="Open menu">
-    <span class="menu-icon"></span>
-  </button>
-</nav>
-
-<div class="menu-overlay"></div>
-
-<div class="mobile-menu">
+<div class="menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" aria-hidden="true">
   <div class="mobile-head">
     <strong>Menu</strong>
-    <button class="menu-close">✕</button>
+    <button class="menu-close" type="button" aria-label="Close menu">✕</button>
   </div>
   <a href="index.html">Home</a>
   <a href="Gallery.html">Gallery</a>
   <a href="about.html">About</a>
-  <a href="#services">Services</a>
+  <a href="about.html#services">Services</a>
   <a href="contact.html">Contact</a>
   <a class="mm-btn" href="contact.html">Get a Quote</a>
 </div>
 
-
-<section id="home" class="hero">
-  <div class="hero-content">
-    <h1>YOUR SAFETY IS OUR<br>PRIORITY</h1>
-    <p>
+<section class="hero" id="home">
+  <div class="wrap">
+    <h1 class="reveal">YOUR SAFETY IS OUR<br>PRIORITY</h1>
+    <p class="reveal">
       Anchored on a socio-economic empowered set of values, MATOMELA GROUP NO LIMIT delivers dependable,
       professional security solutions that protect communities, assets, and business interests—24/7.
     </p>
 
-    <div class="quick-badges">
+    <div class="quick-badges reveal">
       <span class="pill"><span class="dot"></span> 24/7 Control Room</span>
       <span class="pill"><span class="dot"></span> PSIRA Registered</span>
       <span class="pill"><span class="dot"></span> Level 1 B-BBEE</span>
     </div>
 
-    <div class="hero-row">
+    <div class="hero-actions reveal">
       <a class="primary" href="contact.html">Request a Quote</a>
-      <a class="secondary" href="#about">Learn More</a>
+      <a class="secondary" href="about.html">Learn More</a>
     </div>
   </div>
 </section>
 
-<section id="about" class="section alt" data-stagger>
-  <div class="reveal" style="--i:0">
-    <h2>Who is MATOMELA GROUP NO LIMIT</h2>
-    <p class="lead">
-      Matomela Group No Limit is a 100% Black-owned company established and registered in 2024.
-      We are driven by experienced directors and partners in the security industry, with a mission to bridge gaps
-      in private security and help create safer communities.
-    </p>
-  </div>
-
-  <div class="about-grid">
-    <div class="about-image reveal" style="--i:1">
-      <img src="Pictures/Security-officers1.jpeg" alt="MATOMELA GROUP NO LIMIT Security Officers">
+<section class="section alt" id="services">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="h2">Our Security Services</div>
+      <p class="lead">
+        From physical guarding and rapid response to modern surveillance and access control, our service offering is designed to
+        reduce risk, prevent incidents, and protect what matters most.
+      </p>
     </div>
 
-    <div class="about-content reveal" style="--i:2">
-      <h3>Professional. Disciplined. Community-Focused.</h3>
-      <p>
-        We recruit qualified, passionate partners and build strong teams to ensure the delivery of quality services.
-        Our dedicated management team focuses on smooth operations and meeting logistical expectations—every time.
-      </p>
-      <p>
-        We implement stringent training over and above average standards. As an independent and standalone company,
-        we provide objective recommendations tailored to your needs and budget while maintaining required standards.
-      </p>
-
-      <div class="stats">
-        <div class="stat">
-          <div class="k">Established</div>
-          <div class="v"><span>2024</span></div>
-        </div>
-        <div class="stat">
-          <div class="k">Availability</div>
-          <div class="v"><span>24/7</span></div>
-        </div>
-        <div class="stat">
-          <div class="k">Focus</div>
-          <div class="v"><span>Safer Communities</span></div>
-        </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="badge">SG</div>
+        <h3>Security Guards (Armed / Unarmed)</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          Professional on-site protection, access control, and visible deterrence for residential, commercial, and industrial sites.
+        </p>
       </div>
 
-      <div class="services-pills">
-        <div>Guarding Division</div>
-        <div>Armed Response</div>
-        <div>VIP Protection</div>
-        <div>Event Management</div>
-        <div>CCTV Installation &amp; Management</div>
-        <div>Access Control &amp; Fire Alarms</div>
+      <div class="card reveal">
+        <div class="badge">SF</div>
+        <h3>Special Force Unit</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          Advanced tactical deployment for high-risk environments, high-value protection, and rapid-response operations.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="badge">CC</div>
+        <h3>CCTV Installation</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          High-quality CCTV solutions that improve visibility, deter crime, and provide clear footage when it matters most.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="badge">AL</div>
+        <h3>Alarm Installation &amp; Monitoring</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          Reliable alarm systems with fast reaction support—built to detect threats early and secure your property 24/7.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="badge">FW</div>
+        <h3>Farm Watch</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          Dedicated rural and farm protection through patrols, monitoring, and rapid response to reduce theft and intrusion.
+        </p>
+      </div>
+
+      <div class="card reveal">
+        <div class="badge">CR</div>
+        <h3>Crowd Control &amp; Riot Management</h3>
+        <p style="color:var(--muted); line-height:1.65; margin:0;">
+          Trained teams to manage crowds and high-pressure situations professionally—keeping events safe, controlled, and orderly.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-<section id="services" class="section alt" data-stagger>
-  <div class="reveal" style="--i:0">
-    <h2>Our Security Services</h2>
-    <p class="lead">
-      From physical guarding and rapid response to modern surveillance and access control,
-      our service offering is designed to reduce risk, prevent incidents, and protect what matters most.
-    </p>
-  </div>
-
-  <div class="cards" data-stagger>
-    <div class="card reveal" style="--i:1">
-      <div class="badge">SG</div>
-      <h3>Security Guards (Armed / Unarmed)</h3>
-      <p>Professional on-site protection, access control, and visible deterrence for residential, commercial, and industrial sites.</p>
-    </div>
-
-    <div class="card reveal" style="--i:2">
-      <div class="badge">AR</div>
-      <h3>Armed Response</h3>
-      <p>Swift reaction support guided by policy and your instructions—supported by constant control-room communication.</p>
-    </div>
-
-    <div class="card reveal" style="--i:3">
-      <div class="badge">VP</div>
-      <h3>VIP Protection</h3>
-      <p>Close protection personnel with deep threat awareness and a proactive approach to risk prevention.</p>
-    </div>
-
-    <div class="card reveal" style="--i:4">
-      <div class="badge">CC</div>
-      <h3>CCTV Installation &amp; Management</h3>
-      <p>Modern CCTV systems that improve visibility, deter criminal activity, and provide clear evidence when needed.</p>
-    </div>
-
-    <div class="card reveal" style="--i:5">
-      <div class="badge">AC</div>
-      <h3>Access Control &amp; Fire Alarms</h3>
-      <p>Secure entry management and fire alarm solutions to strengthen safety and compliance at your premises.</p>
-    </div>
-
-    <div class="card reveal" style="--i:6">
-      <div class="badge">EV</div>
-      <h3>Event Management &amp; Crowd Control</h3>
-      <p>Structured crowd control and incident management for public gatherings and events—focused on order and safety.</p>
-    </div>
-  </div>
-</section>
-
-
-
-<section id="contact" class="section alt" data-stagger>
-  <div class="reveal" style="--i:0">
-    <h2>Contact</h2>
-    <p class="lead">
-      Tell us what you need and we’ll respond with a tailored quote. Our 24/7 control room supports swift coordination and response.
-    </p>
-  </div>
-
-  <div class="contact-wrap" data-stagger>
-    <div class="contact-card reveal" style="--i:1">
-      <h3 style="margin:10px 0 14px 0;">Contact Details</h3>
-      <p><strong>Cell Phone:</strong> 071 006 9641</p>
-      <p><strong>Tel:</strong> 039 318 1200</p>
-      <p><strong>Email:</strong> <a href="mailto:matomelagroup6@gmail.com">matomelagroup6@gmail.com</a></p>
-      <p><strong>Office Address:</strong><br>
-        1524 Masemola Road,<br>
-        Gamalakhe, Port Shepstone,<br>
-        KwaZulu-Natal, 4249
-      </p>
-      <p style="margin-top:14px; color:var(--muted)">
-        <strong>24/7 Control Room:</strong> Fully equipped with a patrol monitoring system.
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="h2">Contact</div>
+      <p class="lead">
+        Tell us what you need and we’ll respond with a tailored quote. We support clients 24/7 for coordination and response.
       </p>
     </div>
 
+    <div class="grid-2">
+      <div class="card reveal">
+        <h3 style="margin-top:10px;">Contact Details</h3>
+        <p style="margin:0 0 10px 0;"><strong>Cell Phone:</strong> <a href="tel:+27710069641" style="color:var(--red); font-weight:900; text-decoration:none;">071 006 9641</a></p>
+        <p style="margin:0 0 10px 0;"><strong>Tel:</strong> <a href="tel:+27393181200" style="color:var(--red); font-weight:900; text-decoration:none;">039 318 1200</a></p>
+        <p style="margin:0 0 10px 0;"><strong>Email:</strong> <a href="mailto:matomelagroup6@gmail.com" style="color:var(--red); font-weight:900; text-decoration:none;">matomelagroup6@gmail.com</a></p>
+        <p style="margin:0;"><strong>Office Address:</strong><br>1524 Masemola Road, Gamalakhe,<br>Port Shepstone, 4249</p>
+      </div>
+
+
+
+      <div class="card reveal">
+        <h3 style="margin-top:10px;">Quick Message</h3>
+        <form action="https://formsubmit.co/matomelagroup6@gmail.com" method="POST" style="display:grid; gap:12px;">
+          <input name="name" placeholder="Your name" required style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.14);">
+          <input name="phone" placeholder="Your phone number" required style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.14);">
+          <input name="email" placeholder="Your email (optional)" style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.14);">
+          <textarea name="message" placeholder="Tell us what you need..." required style="padding:12px;border-radius:12px;border:1px solid rgba(0,0,0,0.14); min-height:120px;"></textarea>
+
+
+          <button type="submit" style="border:0;cursor:pointer;padding:12px 14px;border-radius:12px;font-weight:900;color:#fff;background:linear-gradient(90deg,var(--red),var(--black));">
+            
+            <!-- Thank You -->
+            <input type="hidden" name="_next" value="https://matomela-group.co.za/Thankyou.html">
+
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-  <div><strong>MATOMELA GROUP NO LIMIT</strong> — Security Solutions</div>
-  <div>© <span id="year"></span> All rights reserved.</div>
+  <div class="wrap">
+    <div><strong>MATOMELA GROUP NO LIMIT</strong> — Security Solutions</div>
+    <div>© <span id="year"></span> All rights reserved.</div>
+  </div>
 </footer>
 
 <script>
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+  const y = document.getElementById('year');
+  if(y) y.textContent = new Date().getFullYear();
 
-// Scroll reveal with IntersectionObserver + stagger via --i
-(function(){
+  // Reveal on scroll
   const items = document.querySelectorAll('.reveal');
   const obs = new IntersectionObserver((entries)=>{
     entries.forEach((e)=>{
@@ -908,31 +585,22 @@ document.getElementById('year').textContent = new Date().getFullYear();
       }
     });
   }, { threshold: 0.12 });
+  items.forEach(el => obs.observe(el));
 
-  items.forEach((el)=>obs.observe(el));
-})();
-</script>
+  // Mobile menu
+  const btn = document.querySelector('.menu-btn');
+  const overlay = document.querySelector('.menu-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+  const links = document.querySelectorAll('.mobile-menu a');
+  const closeMenu = () => document.body.classList.remove('menu-open');
 
-
-<script>
-const btn = document.querySelector('.menu-btn');
-const overlay = document.querySelector('.menu-overlay');
-const closeBtn = document.querySelector('.menu-close');
-
-function closeMenu(){
-  document.body.classList.remove('menu-open');
-}
-
-btn.addEventListener('click',()=>{
-  document.body.classList.add('menu-open');
-});
-overlay.addEventListener('click',closeMenu);
-closeBtn.addEventListener('click',closeMenu);
-document.querySelectorAll('.mobile-menu a').forEach(a=>{
-  a.addEventListener('click',closeMenu);
+  btn && btn.addEventListener('click', ()=> document.body.classList.add('menu-open'));
+  overlay && overlay.addEventListener('click', closeMenu);
+  closeBtn && closeBtn.addEventListener('click', closeMenu);
+  links.forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
 });
 </script>
+
 </body>
-
 </html>
-
