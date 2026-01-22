@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery | MATOMELA GROUP NO LIMIT</title>
+<meta name="description" content="Gallery of MATOMELA GROUP NO LIMIT security operations, vehicles and officers in KwaZulu-Natal." />
+<link rel="icon" type="image/x-icon" href="Pictures/Logo.jpg">
+
+<style>
+:root{
+  --red:#b30000;
+  --red2:#8b0000;
+  --black:#000;
+  --text:#101010;
+  --muted:#5e5e5e;
+  --card:#ffffff;
+  --border:#e9e9e9;
+  --bg:#ffffff;
+  --bg-soft:#fafafa;
+  --shadow: 0 16px 42px rgba(0,0,0,0.14);
+  --shadow2: 0 10px 28px rgba(0,0,0,0.08);
+  --radius:18px;
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+}
+
+/* ---------------- NAVBAR (matches your site) ---------------- */
+.navbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid rgba(0,0,0,0.06);
+}
+.navbar .inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#111;
+  min-width:0;
+}
+.brand img{ height:46px; flex:0 0 auto; }
+.brand span{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:0.2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.nav-links{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  margin-left:auto;
+}
+.nav-links a{
+  position:relative;
+  text-decoration:none;
+  color:#111;
+  font-size:15px;
+  font-weight:800;
+  opacity:0.9;
+  transition: transform 160ms ease, opacity 160ms ease;
+}
+.nav-links a:hover{ transform: translateY(-2px); opacity:1; }
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:0;
+  height:3px;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  transition: width 200ms ease;
+}
+.nav-links a:hover::after{ width:100%; }
+
+.nav-cta{
+  display:flex;
+  gap:10px;
+  margin-left:10px;
+}
+.nav-cta a{
+  text-decoration:none;
+  font-weight:900;
+  font-size:13px;
+  padding:10px 14px;
+  border-radius:12px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  white-space:nowrap;
+}
+.nav-cta a:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.14); }
+.btn{ background: linear-gradient(90deg, var(--red), var(--black)); color:#fff; }
+.ghost{ border:1px solid rgba(0,0,0,0.14); color:#111; background:rgba(255,255,255,0.7); }
+
+/* Hamburger (shown on <=1024px) */
+.menu-btn{
+  display:none;
+  margin-left:auto;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.14);
+  background:#fff;
+  cursor:pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  flex:0 0 auto;
+}
+.menu-btn:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.12); }
+.menu-icon{
+  width:20px;
+  height:14px;
+  display:inline-block;
+  background:
+    linear-gradient(#111,#111) 0 0/100% 2px,
+    linear-gradient(#111,#111) 0 50%/100% 2px,
+    linear-gradient(#111,#111) 0 100%/100% 2px;
+  background-repeat:no-repeat;
+}
+
+.menu-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity 220ms ease;
+  z-index:60;
+}
+.mobile-menu{
+  position:fixed;
+  top:0; right:0;
+  height:100%;
+  width:min(88vw, 360px);
+  background:#fff;
+  transform: translateX(102%);
+  transition: transform 260ms ease;
+  z-index:70;
+  padding:18px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  box-shadow:-20px 0 50px rgba(0,0,0,0.18);
+}
+.mobile-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:4px 4px 10px;
+  border-bottom:1px solid rgba(0,0,0,0.08);
+}
+.mobile-head strong{ font-weight:900; }
+.menu-close{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:1px solid rgba(0,0,0,0.14);
+  background:#fff;
+  cursor:pointer;
+}
+.mobile-menu a{
+  text-decoration:none;
+  font-weight:900;
+  color:#111;
+  padding:12px 12px;
+  border-radius:14px;
+  background:#f7f7f7;
+  border:1px solid rgba(0,0,0,0.08);
+}
+.mobile-menu a.mm-btn{
+  margin-top:auto;
+  background: linear-gradient(90deg, var(--red), var(--black));
+  color:#fff;
+  border:none;
+  text-align:center;
+}
+
+body.menu-open .menu-overlay{ opacity:1; pointer-events:auto; }
+body.menu-open .mobile-menu{ transform: translateX(0); }
+
+/* ---------------- PAGE TITLE (like first slide) ---------------- */
+.section{
+  padding:44px 18px 70px;
+}
+.wrap{
+  max-width:1200px;
+  margin:0 auto;
+}
+.h2{
+  font-size:44px;
+  margin:0 0 12px 0;
+  letter-spacing:0.25px;
+  position:relative;
+  display:inline-block;
+}
+.h2::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  height:5px;
+  width:72%;
+  border-radius:999px;
+  background: linear-gradient(90deg, var(--red), var(--black));
+}
+.lead{
+  max-width:900px;
+  margin:22px 0 0 0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.75;
+}
+
+/* ---------------- GALLERY GRID ---------------- */
+.gallery{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:18px;
+}
+.tile{
+  position:relative;
+  border-radius: 16px;
+  overflow:hidden;
+  background:#ddd;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  cursor:pointer;
+  transform: translateY(0);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.tile:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.16);
+}
+.tile img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+}
+.tile::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 55%, rgba(0,0,0,0.20));
+  pointer-events:none;
+}
+
+/* ---------------- LIGHTBOX ---------------- */
+.lightbox{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,0.82);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:90;
+  padding:18px;
+}
+.lightbox.open{ display:flex; }
+
+.lb-inner{
+  width:min(1100px, 96vw);
+  height:min(720px, 82vh);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+}
+
+.lb-img{
+  max-width:100%;
+  max-height:100%;
+  border-radius:18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.lb-close{
+  position:absolute;
+  top:-10px;
+  right:-10px;
+  width:44px;
+  height:44px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.lb-btn{
+  position:absolute;
+  top:50%;
+  transform: translateY(-50%);
+  width:48px;
+  height:48px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.10);
+  color:#fff;
+  font-size:22px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.lb-prev{ left:-10px; }
+.lb-next{ right:-10px; }
+
+.lb-caption{
+  position:absolute;
+  bottom:-44px;
+  left:0;
+  right:0;
+  color: rgba(255,255,255,0.88);
+  text-align:center;
+  font-size:14px;
+}
+
+/* ---------------- FOOTER ---------------- */
+footer{
+  padding:26px 18px;
+  background:#0d0d0d;
+  color:#cfcfcf;
+}
+footer .wrap{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+}
+footer strong{ color:#fff; }
+
+/* ---------------- RESPONSIVE ---------------- */
+@media (max-width: 1024px){
+  .nav-links, .nav-cta{ display:none; }
+  .menu-btn{ display:flex; align-items:center; justify-content:center; }
+  .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .h2{ font-size:38px; }
+}
+@media (max-width: 768px){
+  .gallery{ grid-template-columns: 1fr; } /* vertical on mobile */
+  .tile img{ height:260px; }
+  .h2{ font-size:32px; }
+  .section{ padding:36px 18px 60px; }
+  .lb-prev{ left:6px; }
+  .lb-next{ right:6px; }
+  .lb-close{ top:6px; right:6px; }
+  .lb-caption{ bottom:-34px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="navbar">
+  <div class="inner">
+    <a class="brand" href="index.html">
+      <img src="Pictures/Logo.jpg" alt="Matomela Group Logo">
+      <span>MATOMELA GROUP NO LIMIT</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="Gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="about.html#services">Services</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <div class="nav-cta">
+      <a class="ghost" href="about.html#services">View Services</a>
+      <a class="btn" href="contact.html">Get a Quote</a>
+    </div>
+
+    <button class="menu-btn" type="button" aria-label="Open menu">
+      <span class="menu-icon" aria-hidden="true"></span>
+    </button>
+  </div>
+</div>
+
+<div class="menu-overlay" aria-hidden="true"></div>
+<div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-head">
+    <strong>Menu</strong>
+    <button class="menu-close" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="Gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="about.html#services">Services</a>
+  <a href="contact.html">Contact</a>
+  <a class="mm-btn" href="contact.html">Get a Quote</a>
+</div>
+
+<!-- PAGE TITLE + GRID -->
+<section class="section">
+  <div class="wrap">
+    <div class="h2">Gallery</div>
+    <p class="lead">A visual showcase of our vehicles, officers and operations in action.</p>
+
+    <div class="gallery" id="gallery">
+      <!-- Vehicles -->
+      <div class="tile" data-src="Pictures/Picture-1.jpeg" data-caption="Security vehicle branding">
+        <img src="Pictures/Picture-1.jpeg" alt="Security vehicle branding">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-2.jpeg" data-caption="Patrol vehicle side view">
+        <img src="Pictures/Picture-2.jpeg" alt="Patrol vehicle side view">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-3.jpeg" data-caption="Security response car front">
+        <img src="Pictures/Picture-3.jpeg" alt="Security response car front">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-4.jpeg" data-caption="Security vehicle on site">
+        <img src="Pictures/Picture-4.jpeg" alt="Security vehicle on site">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-5.jpeg" data-caption="Patrol vehicle - response unit">
+        <img src="Pictures/Picture-5.jpeg" alt="Patrol vehicle - response unit">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-6.jpeg" data-caption="Security pickup truck">
+        <img src="Pictures/Picture-6.jpeg" alt="Security pickup truck">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-7.jpeg" data-caption="Patrol fleet">
+        <img src="Pictures/Picture-7.jpeg" alt="Patrol fleet">
+      </div>
+      <div class="tile" data-src="Pictures/Picture-8.jpeg" data-caption="Response unit vehicle">
+        <img src="Pictures/Picture-8.jpeg" alt="Response unit vehicle">
+      </div>
+      <div class="tile" data-src="Pictures/Security-officers.jpeg" data-caption="Security officers on duty">
+        <img src="Pictures/Security-officers.jpeg" alt="Security officers on duty">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lb-inner" id="lbInner">
+    <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous">‹</button>
+    <img class="lb-img" id="lbImg" alt="Gallery image">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next">›</button>
+    <div class="lb-caption" id="lbCaption"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div><strong>MATOMELA GROUP NO LIMIT</strong> — Security Solutions</div>
+    <div>© <span id="year"></span> All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // year
+  const y = document.getElementById('year');
+  if(y) y.textContent = new Date().getFullYear();
+
+  // Mobile menu
+  const btn = document.querySelector('.menu-btn');
+  const overlay = document.querySelector('.menu-overlay');
+  const closeBtn = document.querySelector('.menu-close');
+  const links = document.querySelectorAll('.mobile-menu a');
+  const closeMenu = () => document.body.classList.remove('menu-open');
+  btn && btn.addEventListener('click', ()=> document.body.classList.add('menu-open'));
+  overlay && overlay.addEventListener('click', closeMenu);
+  closeBtn && closeBtn.addEventListener('click', closeMenu);
+  links.forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+
+  // Lightbox
+  const tiles = Array.from(document.querySelectorAll('.tile'));
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCaption = document.getElementById('lbCaption');
+  const lbClose = document.getElementById('lbClose');
+  const lbPrev = document.getElementById('lbPrev');
+  const lbNext = document.getElementById('lbNext');
+  const lbInner = document.getElementById('lbInner');
+
+  let idx = 0;
+  const data = tiles.map(t => ({
+    src: t.getAttribute('data-src'),
+    caption: t.getAttribute('data-caption') || ''
+  }));
+
+  function render(){
+    lbImg.src = data[idx].src;
+    lbCaption.textContent = data[idx].caption;
+  }
+
+  function openAt(i){
+    idx = i;
+    render();
+    lb.classList.add('open');
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close(){
+    lb.classList.remove('open');
+    lb.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  function prev(){
+    idx = (idx - 1 + data.length) % data.length;
+    render();
+  }
+
+  function next(){
+    idx = (idx + 1) % data.length;
+    render();
+  }
+
+  tiles.forEach((t, i) => t.addEventListener('click', () => openAt(i)));
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', prev);
+  lbNext.addEventListener('click', next);
+
+  // Click outside image closes
+  lb.addEventListener('click', (e)=>{
+    if(e.target === lb) close();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e)=>{
+    if(!lb.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+  });
+
+  // Swipe support
+  let startX = 0;
+  let startY = 0;
+  let isDown = false;
+
+  function onTouchStart(e){
+    const t = e.touches ? e.touches[0] : e;
+    startX = t.clientX;
+    startY = t.clientY;
+    isDown = true;
+  }
+  function onTouchEnd(e){
+    if(!isDown) return;
+    isDown = false;
+    const t = e.changedTouches ? e.changedTouches[0] : e;
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    if(Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+    if(dx > 0) prev(); else next();
+  }
+
+  lbInner.addEventListener('touchstart', onTouchStart, {passive:true});
+  lbInner.addEventListener('touchend', onTouchEnd, {passive:true});
+});
+</script>
+
+</body>
+</html>
